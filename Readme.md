@@ -149,28 +149,6 @@ npm run start:dev
 - Resource not found (e.g., non-existent blog or user).
 - Internal server errors.
 
-# Directory Structure
-
-```plaintext
-/blog-platform
-├── /src
-│   ├── /app
-│   │   ├── /models
-│   │   ├── /controllers
-│   │   ├── /middlewares
-│   │   ├── /services
-│   │   └── /routes
-│   ├── /config
-│   ├── /utils
-│   └── server.ts
-├── /tests
-├── .env
-├── .gitignore
-├── package.json
-├── tsconfig.json
-└── README.md
-```
-
 # Future Enhancements
 
 - Add unit and integration tests.
