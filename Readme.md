@@ -46,17 +46,17 @@ This project is a backend system for a blogging platform where users can create,
 ## Project Setup
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/blog-server.git
    cd blog-server
    ```
 
-````
-
 2. Install dependencies:
-```bash
-npm install
-````
+
+   ```bash
+      npm install
+   ```
 
 3. Set up environment variables:
 
