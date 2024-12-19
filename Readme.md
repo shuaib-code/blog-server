@@ -1,18 +1,7 @@
 # Blog Project
 
-<div style="margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f0f0f0;">
-  <div style="font-size: 5rem; font-weight: bold; display: flex;">
-    <span style="padding: 0 10px; color: white; background-color: #e74c3c; animation: colorChange 2s infinite alternate;">B</span>
-    <span style="padding: 0 10px; color: white; background-color: #8e44ad; animation: colorChange 2s infinite alternate;">L</span>
-    <span style="padding: 0 10px; color: white; background-color: #3498db; animation: colorChange 2s infinite alternate;">O</span>
-    <span style="padding: 0 10px; color: white; background-color: #2ecc71; animation: colorChange 2s infinite alternate;">G</span>
-  </div>
-  <style>
-    @keyframes colorChange {
-      0% { background-color: #f39c12; }
-      100% { background-color: #2ecc71; }
-    }
-  </style>
+<div style="margin: 0; padding: 0; height: 100%; display: flex; justify-content: center; align-items: center;">
+  <img src="https://img.freepik.com/free-photo/toy-bricks-table-with-word-blog_144627-47465.jpg?t=st=1734634375~exp=1734637975~hmac=4220c3ff4fc6af864b1085c7a9569fb760e324e11864b123cff27fdc3e8fea07&w=1380" alt="Blog Platform" style="width: 100%; height: auto;">
 </div>
 
 ## Overview
