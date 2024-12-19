@@ -10,7 +10,7 @@ class QueryBuilder<T> {
 	}
 
 	public search(fields: string[]): this {
-		const searchTerm = this.query.searchTerm as string;
+		const searchTerm = this.query.search as string;
 		if (searchTerm) {
 			this.modelQuery = this.modelQuery.find({
 				$or: fields.map((field) => ({
@@ -23,7 +23,7 @@ class QueryBuilder<T> {
 
 	public filter(): this {
 		const excluded = [
-			"searchTerm",
+			"search",
 			"page",
 			"limit",
 			"sortBy",

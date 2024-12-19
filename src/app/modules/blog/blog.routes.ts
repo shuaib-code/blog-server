@@ -15,7 +15,8 @@ router.post(
 );
 
 router.get("/", BlogController.getAll);
-router.get("/:id", BlogController.getSingle);
+// router.get("/:id", BlogController.getSingle);
+router.delete("/:id", auth(userRole.user), BlogController.delete);
 router.patch(
 	"/:id",
 	auth(userRole.user),

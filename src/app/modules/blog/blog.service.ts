@@ -1,3 +1,5 @@
+import { StatusCodes } from "http-status-codes";
+import AppError from "../../errors/AppError";
 import { flattenObject } from "../../utils/fattenObject";
 import QueryBuilder from "../../utils/queryBuilder";
 import { blogSearchFields } from "./blog.constant";
@@ -13,30 +15,54 @@ const BlogServices = {
 	},
 
 	getAll: async (query: Record<string, unknown>) => {
-		const blogQuery = new QueryBuilder(Blog.find(), query);
+		const blogQuery = new QueryBuilder(
+			Blog.find().select("title content author"),
+			query,
+		);
 
 		const data = await blogQuery
 			.search(blogSearchFields)
 			.filter()
-			.paginate()
 			.sort()
 			.select()
-			.build();
+			.build()
+			.populate({ path: "author", select: "name email" });
 
-		const meta = await blogQuery.countTotal();
-		return { data, meta };
+		return data;
 	},
 
 	getById: async (id: string) => await Blog.findOne({ id }),
 
-	delete: async (id: string) => await Blog.deleteOne({ id }),
+	delete: async (_id: string, userId: string) => {
+		const blog = await Blog.findOne({ _id });
 
-	update: async (id: string, updatedBlog: Partial<IBlog>) => {
+		if (!blog) throw new AppError(404, "Blog not found");
+		if (String(blog.author) !== userId)
+			throw new AppError(
+				StatusCodes.UNAUTHORIZED,
+				"You are not authorized to update this blog",
+			);
+
+		return await Blog.deleteOne({ _id });
+	},
+
+	update: async (id: string, updatedBlog: Partial<IBlog>, userId: string) => {
+		const blog = await Blog.findOne({ _id: id });
+
+		if (!blog) throw new AppError(404, "Blog not found");
+		if (String(blog.author) !== userId)
+			throw new AppError(
+				StatusCodes.UNAUTHORIZED,
+				"You are not authorized to update this blog",
+			);
+
 		const updatedData = flattenObject(updatedBlog);
 		return await Blog.findByIdAndUpdate(id, updatedData, {
 			new: true,
 			runValidators: true,
-		});
+		})
+			.select("title content author")
+			.populate({ path: "author", select: "name email" });
 	},
 };
 
