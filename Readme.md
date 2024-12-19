@@ -1,6 +1,8 @@
 # Blog Project
 
-## ![Blog Platform](https://scieditor.ca/wp-content/uploads/2014/01/blog-49006_640.png)
+<div style="margin: 0; padding: 0; height: 100%; display: flex; justify-content: center; align-items: center;">
+  <img src="https://scieditor.ca/wp-content/uploads/2014/01/blog-49006_640.png" alt="Blog Platform" style="width: 100%; height: auto;">
+</div>
 
 ## Overview
 
