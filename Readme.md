@@ -1,6 +1,6 @@
 # Blog Project
 
----
+## ![Blog Platform](https://scieditor.ca/wp-content/uploads/2014/01/blog-49006_640.png)
 
 ## Overview
 
