@@ -1,7 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import { env } from "../../config/env";
+import { createResponse } from "../../utils";
 import catchAsync from "../../utils/catchAsync";
-import { createResponse } from "../../utils/sendResponse";
 import UserServices from "../user/user.service";
 import AuthServices from "./auth.service";
 
