@@ -12,8 +12,4 @@ router.post(
 );
 router.post("/login", validateInput(authSchema.login), AuthController.login);
 
-router.post("/", AuthController.create);
-router.get("/:id", AuthController.getSingle);
-router.patch("/:id", AuthController.update);
-
 export const AuthRoutes = router;

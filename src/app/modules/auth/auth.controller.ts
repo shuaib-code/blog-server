@@ -29,22 +29,4 @@ export const AuthController = {
 
 		createResponse(res, "Login successful", { token });
 	}),
-
-	create: catchAsync(async (req, res) => {
-		const { auth: authData } = req.body;
-		const result = await AuthServices.create(authData);
-		createResponse(res, "Auth created.", result, StatusCodes.CREATED);
-	}),
-
-	getSingle: catchAsync(async (req, res) => {
-		const { id } = req.params;
-		const result = await AuthServices.getById(id);
-		createResponse(res, "Auth found.", result);
-	}),
-
-	update: catchAsync(async (req, res) => {
-		const { auth } = req.body;
-		const result = await AuthServices.update(req.params.id, auth);
-		createResponse(res, "Auth updated.", result);
-	}),
 };

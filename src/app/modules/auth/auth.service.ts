@@ -1,9 +1,7 @@
 import { StatusCodes } from "http-status-codes";
 import AppError from "../../errors/AppError";
-import { flattenObject } from "../../utils/fattenObject";
 import User from "../user/user.model";
-import { IJWTPayload, ILoginUser, TAuth } from "./auth.interface";
-import Auth from "./auth.model";
+import { IJWTPayload, ILoginUser } from "./auth.interface";
 import { tokenUtils, verifyPassword } from "./auth.utils";
 
 const AuthServices = {
@@ -29,17 +27,6 @@ const AuthServices = {
 		const token = tokenUtils.create(JWTPayload);
 		console.log(token);
 		return token;
-	},
-
-	create: async (auth: TAuth) => await Auth.create(auth),
-	getById: async (id: string) => await Auth.findOne({ id }),
-	delete: async (id: string) => await Auth.deleteOne({ id }),
-	update: async (id: string, updatedAuth: Partial<TAuth>) => {
-		const updatedData = flattenObject(updatedAuth);
-		return await Auth.findByIdAndUpdate(id, updatedData, {
-			new: true,
-			runValidators: true,
-		});
 	},
 };
 
