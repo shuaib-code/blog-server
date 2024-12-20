@@ -25,7 +25,6 @@ const AuthServices = {
 			role: user.role,
 		};
 		const token = tokenUtils.create(JWTPayload);
-		console.log(token);
 		return token;
 	},
 };

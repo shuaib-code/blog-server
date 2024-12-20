@@ -18,6 +18,5 @@ const register = z.object({
 			.max(255, { message: "Password should not exceed 255 characters" }),
 	}),
 });
-const update = register.optional();
 
-export const userSchema = { register, update };
+export const userSchema = { register };

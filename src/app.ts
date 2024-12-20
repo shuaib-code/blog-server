@@ -19,7 +19,7 @@ app.get("/", (_, res: Response) => {
 	res.send(homePage);
 });
 
-app.all("*", (_, res: Response) => {
+app.all("*", () => {
 	throw new AppError(StatusCodes.NOT_FOUND, "API Endpoint not Found.");
 });
 

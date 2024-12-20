@@ -32,6 +32,4 @@ const login = z.object({
 	}),
 });
 
-const update = register.optional();
-
-export const authSchema = { register, update, login };
+export const authSchema = { register, login };

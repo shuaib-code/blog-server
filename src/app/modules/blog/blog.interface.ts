@@ -1,4 +1,4 @@
-import { Model, Types } from "mongoose";
+import { Types } from "mongoose";
 
 export interface IBlog {
 	title: string;
@@ -6,5 +6,3 @@ export interface IBlog {
 	author: Types.ObjectId; // Referencing User model using ObjectId
 	isPublished: boolean;
 }
-
-export interface BlogModel extends Model<IBlog> {}

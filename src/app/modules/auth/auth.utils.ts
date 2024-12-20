@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { env } from "../../config/env";
