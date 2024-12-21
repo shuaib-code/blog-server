@@ -15,12 +15,6 @@ export const BlogController = {
 		createResponse(res, "Blogs retrieved.", result);
 	}),
 
-	getSingle: catchAsync(async (req, res) => {
-		const { id } = req.params;
-		const result = await BlogServices.getById(id);
-		createResponse(res, "Blog found.", result);
-	}),
-
 	update: catchAsync(async (req, res) => {
 		const { id } = req.params;
 		const { body, user } = req;
@@ -32,6 +26,6 @@ export const BlogController = {
 		const { id } = req.params;
 		const { user } = req;
 		const result = await BlogServices.delete(id, user.id);
-		createResponse(res, "Blog deleted.", result);
+		if (result) createResponse(res, "Blog deleted.");
 	}),
 };

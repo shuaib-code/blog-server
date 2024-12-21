@@ -3,3 +3,4 @@ dist
 .env
 gen.ts
 .vercel
+Blog.postman_collection.json

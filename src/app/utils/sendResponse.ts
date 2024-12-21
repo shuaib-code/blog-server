@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Response } from "express";
 
 type TResponse<T> = {
@@ -11,12 +12,18 @@ const sendResponse = <T>(
 	res: Response,
 	{ statusCode, message, data = null }: TResponse<T>,
 ) => {
-	res.status(statusCode).json({
+	const responsePayload: any = {
 		success: true,
 		statusCode,
 		message,
-		data,
-	});
+	};
+
+	// Add `data` field only if it is not null or undefined
+	if (data !== null && data !== undefined) {
+		responsePayload.data = data;
+	}
+
+	res.status(statusCode).json(responsePayload);
 };
 
 // Helper function to create a standardized response
