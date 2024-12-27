@@ -2,187 +2,130 @@ const homePage = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blogging Platform Server Showcase</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    body {
-      font-family: 'Roboto Slab', serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Roboto Slab', serif;
+        }
+        .logo span {
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Roboto Slab', serif;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gradient-to-b from-[#003566] via-[#001d3d] to-[#000814] text-gray-800">
 
-  <!-- Main Container -->
-  <div class="flex justify-center items-center min-h-screen">
-    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl">
-
-      <!-- Header -->
-      <header class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-blue-600">Blogging Platform Server</h1>
-        <p class="mt-2 text-lg text-gray-600">Explore the Backend API and User Roles</p>
-      </header>
-
-      <!-- Features Overview -->
-      <section class="space-y-8">
-        
-        <!-- Server Overview Section -->
-        <div class="bg-gray-50 p-6 rounded-md shadow-sm">
-          <h2 class="text-2xl font-semibold text-blue-500">Server Features</h2>
-          <ul class="list-disc pl-6">
-            <li><strong>User Authentication:</strong> Secure login and registration with JWT token generation.</li>
-            <li><strong>Role-Based Access:</strong> Admin and User roles with different permissions.</li>
-            <li><strong>CRUD Operations:</strong> Users can create, update, and delete their own blogs.</li>
-            <li><strong>Public API:</strong> Fetch blogs with search, sort, and filter functionalities.</li>
-            <li><strong>Admin Control:</strong> Admin can manage users and delete any blog.</li>
-          </ul>
+    <!-- Navbar -->
+    <nav class="bg-gradient-to-r from-[#001d3d] to-[#003566] text-white py-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <h1 class="text-xl font-bold">
+                <div class="logo flex gap-2">
+                    <span style="color:rgb(4, 69, 130);">B</span>
+                    <span style="color: rgb(245, 248, 255);">l</span>
+                    <span style="color: #FFC300;">o</span>
+                    <span style="color: #FFD60A;">g</span>
+                </div>
+                <div style="color: rgb(175, 178, 185);" class="mt-1">API Docs</div>
+            </h1>
+            <ul class="flex gap-6">
+                <li><a href="#auth" class="hover:text-[#FFC300]">Authentication</a></li>
+                <li><a href="#blogs" class="hover:text-[#FFC300]">Blogs</a></li>
+                <li><a href="#admin" class="hover:text-[#FFC300]">Admin</a></li>
+                <li><a href="#contact" class="hover:text-[#FFC300]">Contact</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- User Roles Section -->
-        <div class="bg-gray-50 p-6 rounded-md shadow-sm">
-          <h2 class="text-2xl font-semibold text-blue-500">User Roles</h2>
-          <p><strong>Admin:</strong> Has full control over users and blogs. Can block users, delete any blog, but cannot edit blog content.</p>
-          <p><strong>User:</strong> Can create, edit, and delete their own blogs. Cannot perform admin actions.</p>
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-[#FFC300] to-[#FFD60A] py-20 text-center shadow-lg">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-[#001d3d] mb-4">Welcome to the API Documentation</h2>
+            <p class="text-lg text-gray-700">Explore and integrate our powerful APIs seamlessly.</p>
         </div>
+    </header>
 
-        <!-- API Showcase Section -->
-        <div class="bg-gray-50 p-6 rounded-md shadow-sm">
-          <h2 class="text-2xl font-semibold text-blue-500">API Showcase</h2>
-          <p class="text-lg text-gray-600">Below are the API routes for user and blog management, showcasing the full functionality of the backend.</p>
+    <!-- Sections -->
+    <main class="container mx-auto px-6 py-10 space-y-10">
+        <!-- Authentication Section -->
+        <section id="auth" class="bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-semibold text-[#003566] mb-4">Authentication API</h3>
+            <p class="text-gray-600 mb-4">Manage user authentication securely.</p>
+            <ul class="space-y-4">
+                <li class="p-4 bg-gradient-to-r from-gray-50 to-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                    <strong class="text-[#001d3d]">POST /api/auth/register</strong>
+                    <p class="text-gray-600">Register a new user with the platform.</p>
+                </li>
+                <li class="p-4 bg-gradient-to-r from-gray-50 to-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                    <strong class="text-[#001d3d]">POST /api/auth/login</strong>
+                    <p class="text-gray-600">Login a user and retrieve a token.</p>
+                </li>
+            </ul>
+        </section>
 
-          <!-- Authentication API -->
-          <div class="mt-6">
-            <h3 class="text-xl font-semibold text-blue-400">1. Authentication</h3>
-            <div class="bg-white p-4 rounded-md shadow-sm mt-2">
-              <p><strong>1.1 Register User</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">POST /api/auth/register</pre>
-              <p><strong>Request Body:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "securepassword"
-}</pre>
-              <p><strong>Response:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "success": true,
-  "message": "User registered successfully",
-  "statusCode": 201,
-  "data": {
-    "_id": "string",
-    "name": "string",
-    "email": "string"
-  }
-}</pre>
-            </div>
+        <!-- Blogs Section -->
+        <section id="blogs" class="bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-semibold text-[#003566] mb-4">Blog Management API</h3>
+            <p class="text-gray-600 mb-4">Manage blogs with these endpoints.</p>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <li class="p-4 bg-gradient-to-r from-gray-50 to-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                    <strong class="text-[#001d3d]">POST /api/blogs</strong>
+                    <p class="text-gray-600">Create a new blog post.</p>
+                </li>
+                <li class="p-4 bg-gradient-to-r from-gray-50 to-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                    <strong class="text-[#001d3d]">PATCH /api/blogs/:id</strong>
+                    <p class="text-gray-600">Update an existing blog post.</p>
+                </li>
+                <li class="p-4 bg-gradient-to-r from-gray-50 to-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                    <strong class="text-[#001d3d]">DELETE /api/blogs/:id</strong>
+                    <p class="text-gray-600">Delete a blog post.</p>
+                </li>
+                <li class="p-4 bg-gradient-to-r from-gray-50 to-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                    <strong class="text-[#001d3d]">GET /api/blogs</strong>
+                    <p class="text-gray-600">Retrieve all blog posts.</p>
+                </li>
+            </ul>
+        </section>
 
-            <div class="bg-white p-4 rounded-md shadow-sm mt-6">
-              <p><strong>1.2 Login User</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">POST /api/auth/login</pre>
-              <p><strong>Request Body:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "email": "john@example.com",
-  "password": "securepassword"
-}</pre>
-              <p><strong>Response:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "success": true,
-  "message": "Login successful",
-  "statusCode": 200,
-  "data": {
-    "token": "string"
-  }
-}</pre>
-            </div>
-          </div>
+        <!-- Admin Section -->
+        <section id="admin" class="bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg p-6">
+            <h3 class="text-2xl font-semibold text-[#003566] mb-4">Admin Actions API</h3>
+            <p class="text-gray-600 mb-4">Perform administrative tasks with these APIs.</p>
+            <ul class="space-y-4">
+                <li class="p-4 bg-gradient-to-r from-gray-50 to-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                    <strong class="text-[#001d3d]">PATCH /api/admin/users/:userId/block</strong>
+                    <p class="text-gray-600">Block a user account.</p>
+                </li>
+                <li class="p-4 bg-gradient-to-r from-gray-50 to-gray-200 rounded-lg shadow-sm hover:shadow-md">
+                    <strong class="text-[#001d3d]">DELETE /api/admin/blogs/:id</strong>
+                    <p class="text-gray-600">Delete any blog post.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
 
-          <!-- Blog Management API -->
-          <div class="mt-6">
-            <h3 class="text-xl font-semibold text-blue-400">2. Blog Management</h3>
-            <div class="bg-white p-4 rounded-md shadow-sm mt-2">
-              <p><strong>2.1 Create Blog</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">POST /api/blogs</pre>
-              <p><strong>Request Header:</strong> Authorization: Bearer <token></p>
-              <p><strong>Request Body:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "title": "My First Blog",
-  "content": "This is the content of my blog."
-}</pre>
-              <p><strong>Response:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "success": true,
-  "message": "Blog created successfully",
-  "statusCode": 201,
-  "data": {
-    "_id": "string",
-    "title": "string",
-    "content": "string",
-    "author": { "details" }
-  }
-}</pre>
-            </div>
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gradient-to-r from-[#001d3d] to-[#003566] text-white py-10 text-center">
+        <h3 class="text-3xl font-semibold mb-4">Contact Us</h3>
+        <p class="text-lg mb-6">Need help? Reach out to our support team.</p>
+        <a href="mailto:support@example.com" class="text-[#FFC300] hover:text-[#FFD60A] text-lg">support@example.com</a>
+    </section>
 
-            <div class="bg-white p-4 rounded-md shadow-sm mt-6">
-              <p><strong>2.2 Update Blog</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">PATCH /api/blogs/:id</pre>
-              <p><strong>Request Header:</strong> Authorization: Bearer <token></p>
-              <p><strong>Request Body:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "title": "Updated Blog Title",
-  "content": "Updated content."
-}</pre>
-              <p><strong>Response:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "success": true,
-  "message": "Blog updated successfully",
-  "statusCode": 200,
-  "data": {
-    "_id": "string",
-    "title": "string",
-    "content": "string",
-    "author": { "details" }
-  }
-}</pre>
-            </div>
-          </div>
-
-          <!-- Admin Actions API -->
-          <div class="mt-6">
-            <h3 class="text-xl font-semibold text-blue-400">3. Admin Actions</h3>
-            <div class="bg-white p-4 rounded-md shadow-sm mt-2">
-              <p><strong>3.1 Block User</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">PATCH /api/admin/users/:userId/block</pre>
-              <p><strong>Request Header:</strong> Authorization: Bearer <admin_token></p>
-              <p><strong>Response:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "success": true,
-  "message": "User blocked successfully",
-  "statusCode": 200
-}</pre>
-            </div>
-
-            <div class="bg-white p-4 rounded-md shadow-sm mt-6">
-              <p><strong>3.2 Delete Blog</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">DELETE /api/admin/blogs/:id</pre>
-              <p><strong>Request Header:</strong> Authorization: Bearer <admin_token></p>
-              <p><strong>Response:</strong></p>
-              <pre class="bg-gray-100 p-4 rounded-md">{
-  "success": true,
-  "message": "Blog deleted successfully",
-  "statusCode": 200
-}</pre>
-            </div>
-          </div>
-
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-[#003566] to-[#001d3d] text-white py-6 text-center">
+        <p class="text-sm">&copy; 2024 API Docs. All rights reserved.</p>
+        <div class="mt-4 flex justify-center gap-6">
+            <a href="#" class="hover:text-[#FFD60A]">Facebook</a>
+            <a href="#" class="hover:text-[#FFD60A]">Twitter</a>
+            <a href="#" class="hover:text-[#FFD60A]">LinkedIn</a>
         </div>
-      </section>
-    </div>
-  </div>
-
+    </footer>
 </body>
 </html>
-
 
 `;
 
